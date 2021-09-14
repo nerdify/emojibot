@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/hook.rs": {
+      "runtime": "vercel-rust@3.1.2"
+    }
+  }
+}
