@@ -7,7 +7,8 @@ use std::{env, error::Error};
 use vercel_lambda::{error::VercelError, lambda, IntoResponse, Request, Response};
 
 fn handler(request: Request) -> Result<impl IntoResponse, VercelError> {
-    let event: Value = serde_json::from_slice(&request.into_body()).unwrap();
+    let payload: Value = serde_json::from_slice(&request.into_body()).unwrap();
+    let event = &payload["event"];
 
     if event["type"] == "url_verification" {
         let response = Response::builder()
